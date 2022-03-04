@@ -36,10 +36,12 @@ console.log('First High Score: ', firstHighScore);
 //First High Score:  50
 
 //sort
-let sortedScores = scores.sort((a,b) => {
-    if(a > b) return -1
-    else if(a < b) return 1
-    else return 0
-});
+// let sortedScores = scores.sort((a,b) => {
+//     if(a > b) return -1
+//     else if(a < b) return 1
+//     else return 0
+// });
+//if b is greater returns positive number, if a is greater return negative and if they are equals return 0
+let sortedScores = scores.sort((a,b) => b - a); 
 console.log(sortedScores);
 //[50, 40, 30, 25, 15, 10, 5]
