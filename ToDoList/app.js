@@ -41,3 +41,6 @@ search.addEventListener('keyup', e => {
     let term = e.target.value.trim();
     filteredElements(term);
 });
+
+const now = new Date();
+console.log(now.toLocaleDateString());
