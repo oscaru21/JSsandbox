@@ -3,11 +3,9 @@ const form = document.querySelector('.change-location');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
+const forecast = new Forecast();
 
 const updateUI = data => {
-    // const cityDetails = data.cityDetails;
-    // const weather = data.weather;
-
     //destructure syntax
     const {cityDetails, weather} = data;
 
@@ -33,23 +31,13 @@ const updateUI = data => {
     }
 };
 
-const updateCity = async city => {
-    const cityDetails = await getCity(city);
-    const weather = await getWeather(cityDetails.Key);
-
-    return {
-        cityDetails: cityDetails,
-        weather: weather
-    }
-};
-
 form.addEventListener('submit', e => {
     e.preventDefault();
     const city = e.target.city.value.trim();  
     form.reset();
 
     //update the UI with new city
-    updateCity(city)
+    forecast.updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err));
 });
